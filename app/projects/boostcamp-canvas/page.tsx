@@ -49,7 +49,6 @@ export default function BoostcampCanvasProjectPage() {
               src="/videos/boostcamp-canvas-demo.mp4"
               controls
               preload="metadata"
-              poster="/placeholder.jpg"
             >
               브라우저가 video 태그를 지원하지 않습니다.
             </video>
@@ -58,7 +57,9 @@ export default function BoostcampCanvasProjectPage() {
 
         {/* 1) 리팩토링 */}
         <section className="mb-10">
-          <h2 className="text-2xl font-semibold text-gray-900 mb-2">1) 레거시 리팩토링</h2>
+          <h2 className="text-2xl font-semibold text-gray-900 mb-2">
+            1) 레거시 리팩토링
+          </h2>
           <ul className="list-disc pl-6 text-gray-700 space-y-1">
             <li>IIFE 레거시 → 클래스 기반 모듈화로 가독성/확장성 향상</li>
           </ul>
@@ -66,7 +67,9 @@ export default function BoostcampCanvasProjectPage() {
 
         {/* 2) 카메라/렌더링 최적화 */}
         <section className="mb-10">
-          <h2 className="text-2xl font-semibold text-gray-900 mb-2">2) 카메라 추적/렌더링 최적화</h2>
+          <h2 className="text-2xl font-semibold text-gray-900 mb-2">
+            2) 카메라 추적/렌더링 최적화
+          </h2>
           <ul className="list-disc pl-6 text-gray-700 space-y-1">
             <li>프레임마다 카메라 기준 좌표 계산</li>
             <li>뷰포트 내 필요한 영역만 렌더링하도록 최적화</li>
