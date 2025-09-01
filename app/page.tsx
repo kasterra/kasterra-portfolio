@@ -69,7 +69,7 @@ export default function Home() {
                     href="https://kasterra.github.io"
                     className="flex items-center gap-2"
                   >
-                    블로그에서 튜토리얼 보기
+                    기술 블로그로 이동
                     <ExternalLink className="h-5 w-5" />
                   </a>
                 </Button>
