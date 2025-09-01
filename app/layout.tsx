@@ -7,9 +7,28 @@ import { Suspense } from "react"
 import "./globals.css"
 
 export const metadata: Metadata = {
-  title: "Algorithm Notes - Problem Solving & Explanations",
-  description: "A blog recording algorithm problem solving and explanations by a frontend developer",
-  generator: "v0.app",
+  title: "kasterra — 프론트엔드 포트폴리오 & 지식 공유",
+  description:
+    "이휘찬(kasterra)의 포트폴리오. 주요 프로젝트, 지식 공유(블로그/발표), 학습/연구 활동을 정리한 랜딩 페이지",
+  keywords: [
+    "kasterra",
+    "이휘찬",
+    "프론트엔드",
+    "React",
+    "React Native",
+    "포트폴리오",
+    "기술 블로그",
+  ],
+  authors: [{ name: "이휘찬", url: "https://github.com/kasterra" }],
+  openGraph: {
+    title: "kasterra — 프론트엔드 포트폴리오 & 지식 공유",
+    description:
+      "주요 프로젝트, 지식 공유(블로그/발표), 학습/연구 활동을 정리한 포트폴리오",
+    type: "website",
+    images: [
+      { url: "/placeholder.jpg" },
+    ],
+  },
 }
 
 export default function RootLayout({
@@ -18,7 +37,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="ko">
       <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable}`}>
         <Suspense fallback={null}>{children}</Suspense>
         <Analytics />

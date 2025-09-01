@@ -4,19 +4,41 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
+  CardFooter,
 } from "@/components/ui/card";
 import {
   ExternalLink,
   Github,
-  Linkedin,
+  Mail,
   Code,
   Award,
   Users,
+  MessageSquare,
+  Shield,
+  Leaf,
+  TerminalSquare,
+  Database,
+  HeartPulse,
+  Gamepad2,
+  type LucideIcon,
 } from "lucide-react";
 import Link from "next/link";
 import { knowledgeSharing, projects } from "@/lib/content";
+import type { Project } from "@/lib/content";
+
+export const metadata = {
+  title: "kasterra — React/RN 기반 문제 해결 포트폴리오",
+  description:
+    "React/React Native 중심으로 사용자·개발자 경험을 개선하는 이휘찬(kasterra)의 포트폴리오",
+};
 
 export default function Home() {
+  const professionalProjects: Project[] = projects.filter(
+    (p) => p.category === "professional"
+  );
+  const learningProjects: Project[] = projects.filter(
+    (p) => p.category === "learning"
+  );
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
@@ -33,9 +55,9 @@ export default function Home() {
               </h1>
               <p className="mb-2 text-xl text-gray-500">kasterra</p>
               <p className="mb-8 text-xl text-gray-600 leading-relaxed max-w-2xl">
-                효율적인 문제 해결과 개발 환경 개선에 집착하는 프론트엔드
-                개발자입니다. React/React Native를 중심으로 만들고, 기록하고,
-                공유합니다.
+                React/React Native 중심으로 사용자·개발자 경험을 개선합니다.
+                효율적인 문제 해결과 개발 환경 개선에 집중하며,
+                만들고·기록하고·공유합니다.
               </p>
               <div className="flex flex-col gap-4 sm:flex-row">
                 <Button
@@ -43,20 +65,28 @@ export default function Home() {
                   className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg"
                   asChild
                 >
-                  <a href="#" className="flex items-center gap-2">
-                    기술 블로그
+                  <a
+                    href="https://kasterra.github.io"
+                    className="flex items-center gap-2"
+                  >
+                    블로그에서 튜토리얼 보기
                     <ExternalLink className="h-5 w-5" />
                   </a>
                 </Button>
                 <Button
-                  variant="outline"
                   size="lg"
-                  className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-4 text-lg bg-transparent"
+                  variant="outline"
+                  className="px-8 py-4 text-lg border-blue-600 text-blue-600 hover:bg-blue-50 bg-transparent"
                   asChild
                 >
-                  <a href="#" className="flex items-center gap-2">
-                    알고리즘 블로그
-                    <ExternalLink className="h-5 w-5" />
+                  <a
+                    href="https://github.com/kasterra"
+                    className="flex items-center gap-2"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Github className="h-5 w-5" />
+                    GitHub
                   </a>
                 </Button>
               </div>
@@ -67,16 +97,18 @@ export default function Home() {
                 <div className="grid grid-cols-2 gap-6 mb-8">
                   <div className="text-center">
                     <div className="text-3xl font-bold text-blue-600 mb-1">
-                      4
+                      5
                     </div>
-                    <div className="text-sm text-gray-600">운영된 프로젝트</div>
+                    <div className="text-sm text-gray-600">
+                      상용/운영 기여 프로젝트
+                    </div>
                   </div>
                   <div className="text-center">
                     <div className="text-3xl font-bold text-blue-600 mb-1">
                       78
                     </div>
                     <div className="text-sm text-gray-600">
-                      기술블로그 외부 링크
+                      블로그 외부 인용/백링크
                     </div>
                   </div>
                   <div className="text-center">
@@ -89,10 +121,10 @@ export default function Home() {
                   </div>
                   <div className="text-center">
                     <div className="text-3xl font-bold text-blue-600 mb-1">
-                      1.36만+
+                      약 13.6K
                     </div>
                     <div className="text-sm text-gray-600">
-                      월 평균 블로그 노출수
+                      월간 평균 블로그 노출(최근 3개월)
                     </div>
                   </div>
                 </div>
@@ -103,7 +135,7 @@ export default function Home() {
                     </div>
                     <div>
                       <p className="font-semibold text-gray-900">
-                        React 전문가
+                        React 개발자
                       </p>
                       <p className="text-sm text-gray-600">
                         모던 프론트엔드 개발
@@ -171,7 +203,8 @@ export default function Home() {
                         기술 블로거 (Kasterra’s Archive)
                       </p>
                       <p className="text-gray-600">
-                        단일 글 조회 2K~4.9K, 튜토리얼/베스트 프랙티스 공유
+                        단일 글 조회 2,000~4,900회, 튜토리얼/베스트 프랙티스
+                        공유
                       </p>
                     </div>
                   </div>
@@ -205,7 +238,7 @@ export default function Home() {
                 Kasterra’s Archive 블로그(2021~)와 컨퍼런스 발표를 통해
                 프론트엔드 지식을 공유합니다. React 패턴, 자바스크립트 베스트
                 프랙티스, 최신 도구를 한국어 튜토리얼로 정리했고, 일부 글은
-                2천~4.9천 회까지 조회되었습니다.
+                2–4.9K회까지 조회되었습니다(출처: Hits).
               </p>
             </div>
             <div className="lg:col-span-7">
@@ -218,12 +251,12 @@ export default function Home() {
                       key={index}
                       className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 bg-white"
                     >
-                      <CardHeader className="p-6">
-                        <div className="flex items-start gap-4">
+                      <CardHeader className="p-6 flex-1">
+                        <div className="flex items-start gap-4 justify-between">
                           <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
                             <IconComponent className="h-6 w-6 text-blue-600" />
                           </div>
-                          <div>
+                          <div className="flex-1">
                             <CardTitle className="text-lg text-gray-900 mb-2 whitespace-pre-line">
                               {experience.name}
                             </CardTitle>
@@ -233,6 +266,23 @@ export default function Home() {
                           </div>
                         </div>
                       </CardHeader>
+                      {experience.detailPath && (
+                        <CardFooter className="pt-0 pb-6">
+                          <Button
+                            variant="outline"
+                            className="border-blue-600 text-blue-600 hover:bg-blue-50 w-full bg-transparent"
+                            asChild
+                          >
+                            <Link
+                              href={experience.detailPath}
+                              className="flex items-center justify-center gap-2"
+                            >
+                              <ExternalLink className="h-4 w-4" />
+                              자세히 보기
+                            </Link>
+                          </Button>
+                        </CardFooter>
+                      )}
                     </Card>
                   );
                 })}
@@ -254,39 +304,163 @@ export default function Home() {
               오픈소스 교육 도구
             </p>
           </div>
-          <div className="grid gap-8 md:grid-cols-2">
-            {projects.map((project, index) => (
+          {/* Professional (상용/운영) */}
+          <div className="text-left mb-6">
+            <h3 className="text-2xl font-semibold text-gray-900">
+              상용/운영 프로젝트
+            </h3>
+            <p className="text-gray-600 mt-1">
+              실제 서비스 및 유료 프로젝트 중심의 경험
+            </p>
+          </div>
+          <div className="grid gap-8 md:grid-cols-2 mb-12">
+            {professionalProjects.map((project: Project, index) => (
               <Card
                 key={index}
                 className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 bg-white group"
               >
                 <CardHeader className="p-8">
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
-                      <Code className="h-6 w-6 text-blue-600" />
+                  <div className="flex items-start justify-start mb-3">
+                    <div className="flex items-center gap-3">
+                      <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
+                        {(() => {
+                          const iconMap: Record<Project["icon"], LucideIcon> = {
+                            MessageSquare,
+                            Shield,
+                            Leaf,
+                            TerminalSquare,
+                            Database,
+                            HeartPulse,
+                            Gamepad2,
+                          };
+                          const IconComponent = iconMap[project.icon] ?? Code;
+                          return (
+                            <IconComponent className="h-6 w-6 text-blue-600" />
+                          );
+                        })()}
+                      </div>
+                      <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-700">
+                        {project.period}
+                      </span>
                     </div>
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      className="text-gray-400 hover:text-blue-600 group-hover:text-blue-600 transition-colors"
-                    >
-                      {project.link ? (
-                        <a href={project.link}>
-                          <ExternalLink className="h-4 w-4" />
-                        </a>
-                      ) : project.detailPath ? (
-                        <Link href={project.detailPath}>
-                          <ExternalLink className="h-4 w-4" />
-                        </Link>
-                      ) : null}
-                    </Button>
                   </div>
-                  <CardTitle className="text-xl text-gray-900 mb-3">
+                  <CardTitle className="text-xl text-gray-900 mb-2">
                     {project.name}
                   </CardTitle>
                   <CardDescription className="text-gray-600 mb-6 leading-relaxed">
                     {project.description}
                   </CardDescription>
+                  <div className="mb-6 flex flex-wrap gap-2">
+                    {project.tags.map((tag, i) => (
+                      <span
+                        key={`${project.name}-tag-${i}`}
+                        className="inline-flex items-center px-2.5 py-1 rounded-full text-xs bg-blue-50 text-blue-700 border border-blue-100"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  {project.blogUrl && (
+                    <div className="mb-6">
+                      <a
+                        href={project.blogUrl}
+                        className="text-blue-600 hover:underline text-sm"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        관련 기술 블로그 글
+                      </a>
+                    </div>
+                  )}
+                  {project.link ? (
+                    <Button
+                      variant="outline"
+                      className="border-blue-600 text-blue-600 hover:bg-blue-50 w-full bg-transparent"
+                      asChild
+                    >
+                      <a
+                        href={project.link}
+                        className="flex items-center justify-center gap-2"
+                      >
+                        <Github className="h-4 w-4" />
+                        GitHub에서 보기
+                      </a>
+                    </Button>
+                  ) : project.detailPath ? (
+                    <Button
+                      variant="outline"
+                      className="border-blue-600 text-blue-600 hover:bg-blue-50 w-full bg-transparent"
+                      asChild
+                    >
+                      <Link
+                        href={project.detailPath}
+                        className="flex items-center justify-center gap-2"
+                      >
+                        <ExternalLink className="h-4 w-4" />
+                        자세히 보기
+                      </Link>
+                    </Button>
+                  ) : null}
+                </CardHeader>
+              </Card>
+            ))}
+          </div>
+          {/* Learning/Study */}
+          <div className="text-left mb-6">
+            <h3 className="text-2xl font-semibold text-gray-900">
+              학습/연구 프로젝트
+            </h3>
+            <p className="text-gray-600 mt-1">
+              학습 목적의 실험, 캡스톤 및 커리큘럼 기반 산출물
+            </p>
+          </div>
+          <div className="grid gap-8 md:grid-cols-2">
+            {learningProjects.map((project: Project, index) => (
+              <Card
+                key={index}
+                className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 bg-white group"
+              >
+                <CardHeader className="p-8">
+                  <div className="flex items-start justify-start mb-3">
+                    <div className="flex items-center gap-3">
+                      <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
+                        {(() => {
+                          const iconMap: Record<Project["icon"], LucideIcon> = {
+                            MessageSquare,
+                            Shield,
+                            Leaf,
+                            TerminalSquare,
+                            Database,
+                            HeartPulse,
+                            Gamepad2,
+                          };
+                          const IconComponent = iconMap[project.icon] ?? Code;
+                          return (
+                            <IconComponent className="h-6 w-6 text-blue-600" />
+                          );
+                        })()}
+                      </div>
+                      <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-700">
+                        {project.period}
+                      </span>
+                    </div>
+                  </div>
+                  <CardTitle className="text-xl text-gray-900 mb-2">
+                    {project.name}
+                  </CardTitle>
+                  <CardDescription className="text-gray-600 mb-6 leading-relaxed">
+                    {project.description}
+                  </CardDescription>
+                  <div className="mb-6 flex flex-wrap gap-2">
+                    {project.tags.map((tag, i) => (
+                      <span
+                        key={`${project.name}-tag-${i}`}
+                        className="inline-flex items-center px-2.5 py-1 rounded-full text-xs bg-blue-50 text-blue-700 border border-blue-100"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                   {project.blogUrl && (
                     <div className="mb-6">
                       <a
@@ -347,18 +521,18 @@ export default function Home() {
             </div>
             <div className="flex gap-6">
               <a
-                href="#"
+                href="https://github.com/kasterra"
                 className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
               >
                 <Github className="h-5 w-5" />
                 GitHub
               </a>
               <a
-                href="#"
+                href="mailto:hc19991003@gmail.com"
                 className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
               >
-                <Linkedin className="h-5 w-5" />
-                LinkedIn
+                <Mail className="h-5 w-5" />
+                Email
               </a>
             </div>
           </div>
