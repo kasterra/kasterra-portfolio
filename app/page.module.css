@@ -1,0 +1,15 @@
+.highlightStrong strong {
+  font-weight: 700;
+  padding: 0 0.15em;
+  background-image: linear-gradient(transparent 62%, rgba(255, 245, 157, 0.9) 62%);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+/* Optional: slightly dimmer highlight for dark backgrounds */
+.dark .highlightStrong strong {
+  background-image: linear-gradient(transparent 62%, rgba(255, 213, 79, 0.6) 62%);
+}
+

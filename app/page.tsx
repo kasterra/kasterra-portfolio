@@ -24,6 +24,8 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { knowledgeSharing, projects } from "@/lib/content";
+import { cn } from "@/lib/utils";
+import styles from "./page.module.css";
 import type { Project } from "@/lib/content";
 
 export const metadata = {
@@ -40,7 +42,7 @@ export default function Home() {
     (p) => p.category === "learning"
   );
   return (
-    <div className="min-h-screen bg-white">
+    <div className={cn("min-h-screen bg-white", styles.highlightStrong)}>
       {/* Hero Section */}
       <section className="px-4 py-20 bg-gradient-to-br from-blue-50 to-white">
         <div className="mx-auto max-w-7xl">
@@ -94,37 +96,29 @@ export default function Home() {
 
             <div>
               <div className="bg-white rounded-3xl p-8 shadow-xl border border-gray-100">
-                <div className="grid grid-cols-2 gap-6 mb-8">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-8">
                   <div className="text-center">
                     <div className="text-3xl font-bold text-blue-600 mb-1">
                       5
                     </div>
-                    <div className="text-sm text-gray-600">
+                    <div className="text-xs text-gray-600">
                       상용/운영 기여 프로젝트
+                    </div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-blue-600 mb-1">
+                      13.6K+
+                    </div>
+                    <div className="text-xs text-gray-600">
+                      월간 평균 블로그 노출(최근 3개월)
                     </div>
                   </div>
                   <div className="text-center">
                     <div className="text-3xl font-bold text-blue-600 mb-1">
                       78
                     </div>
-                    <div className="text-sm text-gray-600">
+                    <div className="text-xs text-gray-600">
                       블로그 외부 인용/백링크
-                    </div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-3xl font-bold text-blue-600 mb-1">
-                      5
-                    </div>
-                    <div className="text-sm text-gray-600">
-                      스터디/특강 리드
-                    </div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-3xl font-bold text-blue-600 mb-1">
-                      약 13.6K
-                    </div>
-                    <div className="text-sm text-gray-600">
-                      월간 평균 블로그 노출(최근 3개월)
                     </div>
                   </div>
                 </div>
@@ -135,10 +129,10 @@ export default function Home() {
                     </div>
                     <div>
                       <p className="font-semibold text-gray-900">
-                        React 개발자
+                        경험을 만들고 기록하는 개발자
                       </p>
                       <p className="text-sm text-gray-600">
-                        모던 프론트엔드 개발
+                        React 중심으로 문제 해결과 지식 공유를 실천합니다
                       </p>
                     </div>
                   </div>
@@ -148,7 +142,22 @@ export default function Home() {
                     </div>
                     <div>
                       <p className="font-semibold text-gray-900">기술 블로거</p>
-                      <p className="text-sm text-gray-600">2021년부터</p>
+                      <p className="text-sm text-gray-600">
+                        한국어 튜토리얼 중심, 단일 글 2K~4.9K 조회
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
+                      <Users className="h-5 w-5 text-blue-600" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-gray-900">
+                        스터디/특강 리드
+                      </p>
+                      <p className="text-sm text-gray-600">
+                        네이버 부스트컨퍼런스 연사 & 특강 4회
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -167,13 +176,14 @@ export default function Home() {
               <p className="text-lg text-gray-700 leading-relaxed mb-6">
                 효율적인 문제 해결을 위해 깊게 고민하고, 더 나은 개발 환경을
                 만들 수 있다면 그 방향으로 꾸준히 개선합니다. 대학 시절부터
-                직관적인 UI를 만드는 일과 기술 글쓰기를 통해 지식을 나누는 일에
-                매력을 느끼며 커리어를 시작했습니다.
+                <strong> 직관적인 UI를 만드는 일과 기술 글쓰기</strong>를 통해
+                지식을 나누는 일에 매력을 느끼며 커리어를 시작했습니다.
               </p>
               <p className="text-lg text-gray-700 leading-relaxed">
                 ‘Kasterra’s Archive’라는 이름의 기술 블로그를 운영하며
                 프론트엔드 지식을 정리하고 있습니다. 한국어 자료가 부족한 주제에
-                친절한 튜토리얼을 제공했고, 단일 글 기준 2천~4.9천 회까지 조회된
+                친절한 튜토리얼을 제공했고,
+                <strong> 단일 글 기준 2천~4.9천 회까지 조회</strong>된
                 포스트들이 있습니다. 또한 부스트컨퍼런스(네이버 1784)에서 JS
                 생태계의 의존성 관리(npm vs yarn berry vs pnpm)를 주제로
                 발표했습니다.
@@ -200,7 +210,7 @@ export default function Home() {
                     <div className="w-2 h-2 bg-blue-600 rounded-full mt-3 flex-shrink-0"></div>
                     <div>
                       <p className="font-semibold text-gray-900">
-                        기술 블로거 (Kasterra’s Archive)
+                        기술 블로그 (Kasterra’s Archive)
                       </p>
                       <p className="text-gray-600">
                         단일 글 조회 2,000~4,900회, 튜토리얼/베스트 프랙티스
