@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ExternalLink, Youtube, FileText } from "lucide-react";
 
 export const metadata = {
   title: "KOJ — KNU Online Judge | 프로젝트 상세",
@@ -57,20 +57,53 @@ export default function OJProjectPage() {
             href="https://www.figma.com/design/YFt8uWkVke1Hue1fFFov6J/KOJ-3.0?m=dev&node-id=0-1"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-blue-600 hover:underline inline-flex items-center gap-1"
+            className="inline-flex items-center gap-1 text-blue-600 hover:underline"
+            aria-label="KOJ 피그마 디자인 링크 (새 창)"
+            title="KOJ 피그마 디자인"
           >
-            피그마 링크
+            피그마 링크 <ExternalLink className="h-4 w-4" />
           </a>
         </section>
 
-        {/* 1) cp949 인코딩 문제 해결 */}
+        <section className="mb-8">
+          <h2 className="text-2xl font-semibold text-gray-900 mb-3">
+            데모 영상
+          </h2>
+          <p className="text-gray-700 leading-relaxed mb-3">
+            아래는 KOJ의 기능 데모 영상 두 편입니다.
+          </p>
+          <a
+            href="https://youtu.be/G1jVq1TZiOQ"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 text-blue-600 hover:underline"
+            aria-label="KOJ 문제 추가/제출 기능 데모 영상 (YouTube, 새 창)"
+            title="문제 추가/제출 데모 영상"
+          >
+            <Youtube className="h-4 w-4 text-red-600" />
+            <span>문제 추가/제출 기능 데모 (YouTube)</span>
+          </a>
+          <a
+            href="https://youtu.be/lMzUSWY_sCc"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-2 flex items-center gap-2 text-blue-600 hover:underline"
+            aria-label="KOJ 제출물 다운로드 기능 데모 영상 (YouTube, 새 창)"
+            title="제출물 다운로드 데모 영상"
+          >
+            <Youtube className="h-4 w-4 text-red-600" />
+            <span>제출물 다운로드 기능 데모 (YouTube)</span>
+          </a>
+        </section>
+
+        {/* 1) CP949 인코딩 문제 해결 */}
         <section className="mb-10">
           <h2 className="text-2xl font-semibold text-gray-900 mb-2">
-            1) cp949 인코딩 문제 해결
+            1) CP949 인코딩 문제 해결
           </h2>
           <ul className="list-disc pl-6 text-gray-700 space-y-1">
             <li>
-              문제: Visual Studio에서 작성된 cp-949 인코딩 코드가 서버에서 실행
+              문제: Visual Studio에서 작성된 CP949 인코딩 코드가 서버에서 실행
               불가
             </li>
             <li>해결: iconv-lite + buffer로 UTF-8 변환 파이프라인 구성</li>
@@ -162,6 +195,93 @@ export default function OJProjectPage() {
           <ul className="list-disc pl-6 text-gray-700 space-y-1">
             <li>교수자 수업 준비 시간 최대 30% 단축</li>
             <li>학생 시험 대비 자료 정리 시간 평균 50% 단축</li>
+          </ul>
+        </section>
+
+        <section className="mb-12">
+          <h2 className="text-2xl font-semibold text-gray-900 mb-3">
+            프로젝트 스토리
+          </h2>
+          <p className="text-gray-700 leading-relaxed mb-4">
+            진행 과정과 고민을 정리한 블로그 글 모음입니다.
+          </p>
+          <ul className="grid gap-3 md:grid-cols-2">
+            <li>
+              <a
+                href="https://kasterra.github.io/KOJ-story-1/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block rounded-lg border border-gray-200 bg-white p-4 hover:shadow-sm transition"
+                aria-label="KOJ 스토리 1 - 배경과 초기 기획·설계 (새 창)"
+                title="KOJ 스토리 1"
+              >
+                <div className="flex items-center gap-2 text-gray-900 font-medium">
+                  <FileText className="h-4 w-4 text-gray-600" />
+                  <span>KOJ 스토리 1</span>
+                  <ExternalLink className="ml-auto h-4 w-4 text-gray-400 group-hover:text-gray-600" />
+                </div>
+                <p className="mt-2 text-sm text-gray-600">
+                  프로젝트의 배경과 초기 기획·설계 과정을 정리했습니다.
+                </p>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://kasterra.github.io/KOJ-story-2/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block rounded-lg border border-gray-200 bg-white p-4 hover:shadow-sm transition"
+                aria-label="KOJ 스토리 2 - 사용자별 라우팅 로직과 핵심 컴포넌트 설계 (새 창)"
+                title="KOJ 스토리 2"
+              >
+                <div className="flex items-center gap-2 text-gray-900 font-medium">
+                  <FileText className="h-4 w-4 text-gray-600" />
+                  <span>KOJ 스토리 2</span>
+                  <ExternalLink className="ml-auto h-4 w-4 text-gray-400 group-hover:text-gray-600" />
+                </div>
+                <p className="mt-2 text-sm text-gray-600">
+                  사용자별 라우팅 로직과 핵심 컴포넌트 설계를 다뤘습니다.
+                </p>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://kasterra.github.io/KOJ-story-3/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block rounded-lg border border-gray-200 bg-white p-4 hover:shadow-sm transition"
+                aria-label="KOJ 스토리 3 - CP949 인코딩 이슈와 의존성 활용 (새 창)"
+                title="KOJ 스토리 3"
+              >
+                <div className="flex items-center gap-2 text-gray-900 font-medium">
+                  <FileText className="h-4 w-4 text-gray-600" />
+                  <span>KOJ 스토리 3</span>
+                  <ExternalLink className="ml-auto h-4 w-4 text-gray-400 group-hover:text-gray-600" />
+                </div>
+                <p className="mt-2 text-sm text-gray-600">
+                  외부 라이브러리로 해결한 CP949 인코딩 이슈와 의존성 활용 사례를 소개합니다.
+                </p>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://kasterra.github.io/KOJ-story-4/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block rounded-lg border border-gray-200 bg-white p-4 hover:shadow-sm transition"
+                aria-label="KOJ 스토리 4 - GitHub Actions와 Docker 배포 설정 (새 창)"
+                title="KOJ 스토리 4"
+              >
+                <div className="flex items-center gap-2 text-gray-900 font-medium">
+                  <FileText className="h-4 w-4 text-gray-600" />
+                  <span>KOJ 스토리 4</span>
+                  <ExternalLink className="ml-auto h-4 w-4 text-gray-400 group-hover:text-gray-600" />
+                </div>
+                <p className="mt-2 text-sm text-gray-600">
+                  GitHub Actions 기반 CI/CD와 Docker 배포 설정을 정리했습니다.
+                </p>
+              </a>
+            </li>
           </ul>
         </section>
 
