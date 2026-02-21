@@ -36,10 +36,10 @@ export const metadata = {
 
 export default function Home() {
   const professionalProjects: Project[] = projects.filter(
-    (p) => p.category === "professional"
+    (p) => p.category === "professional",
   );
   const learningProjects: Project[] = projects.filter(
-    (p) => p.category === "learning"
+    (p) => p.category === "learning",
   );
   return (
     <div className={cn("min-h-screen bg-white", styles.highlightStrong)}>
@@ -153,10 +153,11 @@ export default function Home() {
                     </div>
                     <div>
                       <p className="font-semibold text-gray-900">
-                        스터디/특강 리드
+                        개발자 커뮤니티 기여 (특강·커피챗)
                       </p>
                       <p className="text-sm text-gray-600">
-                        네이버 부스트컨퍼런스 연사 & 특강 4회
+                        네이버 부스트컨퍼런스 발표, 특강/스터디 4회, 수료생
+                        커피챗 호스트
                       </p>
                     </div>
                   </div>

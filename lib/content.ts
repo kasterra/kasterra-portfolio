@@ -29,6 +29,13 @@ export const knowledgeSharing: KnowledgeItem[] = [
     icon: "Users",
     detailPath: "/talks/study-lectures",
   },
+  {
+    name: "부스트캠프 10기 수료생\n커피챗 호스트",
+    description:
+      "수료생 커피챗 호스트로 참여해 취준 고민, 이력서/포폴 작성 팁, 멘탈 관리 등을 함께 나눴습니다.",
+    icon: "Users",
+    detailPath: "/talks/boostcamp-coffeechat-host",
+  },
 ];
 
 export type Project = {
