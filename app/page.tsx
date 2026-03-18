@@ -99,7 +99,7 @@ export default function Home() {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-8">
                   <div className="text-center">
                     <div className="text-3xl font-bold text-blue-600 mb-1">
-                      5
+                      6
                     </div>
                     <div className="text-xs text-gray-600">
                       상용/운영 기여 프로젝트
@@ -107,15 +107,16 @@ export default function Home() {
                   </div>
                   <div className="text-center">
                     <div className="text-3xl font-bold text-blue-600 mb-1">
-                      13.6K+
+                      31.8K+
                     </div>
                     <div className="text-xs text-gray-600">
-                      월간 평균 블로그 노출(최근 3개월)
+                      블로그 구글 검색 노출 <br />
+                      (2026.01 - 2026.03)
                     </div>
                   </div>
                   <div className="text-center">
                     <div className="text-3xl font-bold text-blue-600 mb-1">
-                      78
+                      76
                     </div>
                     <div className="text-xs text-gray-600">
                       블로그 외부 인용/백링크
