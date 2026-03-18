@@ -67,6 +67,16 @@ export type Project = {
 export const projects: Project[] = [
   // 최신순 정렬
   {
+    name: "tilda Backoffice",
+    description:
+      "AI 시각화 서비스 백오피스. 접근성/사용성 개선, Release Note 시스템, DX 개선",
+    period: "2026.01 ~ 2026.03",
+    tags: ["Next.js", "TanStack Query", "Zod", "TipTap", "TypeScript"],
+    icon: "Database",
+    category: "professional",
+    detailPath: "/projects/tilda-backoffice",
+  },
+  {
     name: "창톡 — 상담/서비스 앱",
     description:
       "RN 신규 서비스·상담 앱. 웹뷰 통신 프로토콜·레거시 유지보수·공통 UI 라이브러리",
